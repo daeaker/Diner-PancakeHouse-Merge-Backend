@@ -1,6 +1,5 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.controllers;
 
-import edu.iu.habahram.DinerPancakeHouseMerge.model.Iterator;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 import edu.iu.habahram.DinerPancakeHouseMerge.repository.DinerRepository;
 import edu.iu.habahram.DinerPancakeHouseMerge.repository.PancakeHouseRepository;

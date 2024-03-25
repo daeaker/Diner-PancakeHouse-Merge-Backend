@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -29,12 +30,12 @@ public class MergerController {
     public List<MenuItem> getMenuItems() {
         List<MenuItem> menuItems = new ArrayList<>();
 
-        Iterator lunchItems = dinerRepository.getTheMenuIterator();
+        Iterator<MenuItem> lunchItems = dinerRepository.getTheMenuIterator();
         while (lunchItems.hasNext()) {
             menuItems.add(lunchItems.next());
         }
 
-        Iterator breakfastItems = pancakeHouseRepository.getTheMenuIterator();
+        Iterator<MenuItem> breakfastItems = pancakeHouseRepository.getTheMenuIterator();
         while (breakfastItems.hasNext()) {
             menuItems.add(breakfastItems.next());
         }

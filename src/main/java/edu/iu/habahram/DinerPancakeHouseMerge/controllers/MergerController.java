@@ -12,9 +12,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
-@CrossOrigin
 @RestController
+@CrossOrigin
 @RequestMapping("/merger")
 public class MergerController {
 
@@ -26,22 +25,18 @@ public class MergerController {
         this.pancakeHouseRepository = pancakeHouseRepository;
     }
 
-    @GetMapping()
-    public List<MenuItem> getMenuItems() {
+    @GetMapping
+    public List<MenuItem> get() {
         List<MenuItem> menuItems = new ArrayList<>();
-
         Iterator<MenuItem> lunchItems = dinerRepository.getTheMenuIterator();
-        while (lunchItems.hasNext()) {
+        while(lunchItems.hasNext()) {
             menuItems.add(lunchItems.next());
         }
 
         Iterator<MenuItem> breakfastItems = pancakeHouseRepository.getTheMenuIterator();
-        while (breakfastItems.hasNext()) {
+        while(breakfastItems.hasNext()) {
             menuItems.add(breakfastItems.next());
         }
-
         return menuItems;
-
     }
-
 }

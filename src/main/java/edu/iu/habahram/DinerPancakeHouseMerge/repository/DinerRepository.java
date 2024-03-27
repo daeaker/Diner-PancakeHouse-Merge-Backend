@@ -1,9 +1,11 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.repository;
 
 import edu.iu.habahram.DinerPancakeHouseMerge.model.DinerMenu;
-import edu.iu.habahram.DinerPancakeHouseMerge.model.DinerMenuIterator;
+import edu.iu.habahram.DinerPancakeHouseMerge.model.Menu;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 import org.springframework.stereotype.Repository;
+
+import java.util.Iterator;
 
 @Repository
 public class DinerRepository {
@@ -13,7 +15,8 @@ public class DinerRepository {
         return dinerMenu.getMenuItems();
     }
 
-    public DinerMenuIterator getTheMenuIterator() {
-        return new DinerMenuIterator(this.getTheMenu());
+    public Iterator<MenuItem> getTheMenuIterator() {
+        Menu dinerMenu = new DinerMenu();
+        return dinerMenu.createIterator();
     }
 }

@@ -1,12 +1,13 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Iterator;
 
 public class CafeMenu extends Menu {
     HashMap<String, MenuItem> menuItems = new HashMap<String, MenuItem>();
 
-    public CafeMenu() {
+    public CafeMenu(String name, String description) {
+        super(name, description);
         addItem("Veggie Burger and Air Fries",
                 "Veggie burger on a whole wheat bun, lettuce, tomato, and fries",
                 true, 3.99);
@@ -25,8 +26,9 @@ public class CafeMenu extends Menu {
         menuItems.put(name, menuItem);
     }
 
-    public Map<String, MenuItem> getItems() {
-        return menuItems;
+
+    public MenuItem[] getItems() {
+        return menuItems.values().toArray(new MenuItem[0]);
     }
 
     public Iterator<MenuItem> createIterator() {

@@ -1,11 +1,14 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.model;
 
-public class DinerMenu {
+import java.util.Iterator;
+
+public class DinerMenu extends Menu {
     static final int MAX_ITEMS = 6;
     int numberOfItems = 0;
     MenuItem[] menuItems;
 
-    public DinerMenu() {
+    public DinerMenu(String name, String description) {
+        super(name, description);
         menuItems = new MenuItem[MAX_ITEMS];
 
         addItem("Vegetarian BLT",
@@ -48,5 +51,9 @@ public class DinerMenu {
         return  stringBuilder.toString();
     }
 
-      // other menu methods here
+    public Iterator<MenuItem> createIterator() {
+        return new DinerMenuIterator(getMenuItems());
+    }
+
+    // other menu methods here
 }

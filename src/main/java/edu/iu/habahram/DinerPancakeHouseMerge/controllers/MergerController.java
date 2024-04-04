@@ -1,11 +1,10 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.controllers;
 
+import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuComponent;
+import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItemRecord;
 import edu.iu.habahram.DinerPancakeHouseMerge.repository.MergerRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +25,43 @@ public class MergerController {
         return items;
     }
 
+
+
+    @GetMapping("/vegetarian")
+    public List<MenuItemRecord> vegetarian() {
+        List<MenuItemRecord> items = mergerRepository.getTheVegetarianItems();
+        return items;
+    }
+
+
+
+    @GetMapping("/breakfast")
+    public List<MenuItemRecord> breakfast() {
+        List<MenuItemRecord> items = mergerRepository.getBreakfastItems();
+        return items;
+    }
+
+
+    @GetMapping("/lunch")
+    public List<MenuItemRecord> lunch() {
+        List<MenuItemRecord> items = mergerRepository.getLunchItems();
+        return items;
+    }
+
+
+    @GetMapping("/supper")
+    public List<MenuItemRecord> supper() {
+        List<MenuItemRecord> items = mergerRepository.getSupperItems();
+        return items;
+    }
+
+
+
+    @PostMapping("/signup")
+    public boolean signup(@RequestParam String username, @RequestParam String password, @RequestParam String email) {
+        Boolean success = mergerRepository.signup(username, password, email);
+        return success;
+    }
 
 
 

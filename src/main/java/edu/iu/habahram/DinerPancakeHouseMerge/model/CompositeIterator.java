@@ -14,12 +14,25 @@ public class CompositeIterator implements Iterator<MenuComponent> {
 
     @Override
     public boolean hasNext() {
+        if (stack.peek() != null) {
+            if (stack.peek().hasNext()) {
+                return true;
+            }
+            else {
+                stack.pop();
+                if (stack.peek() != null) {
+                    if (stack.peek().hasNext()) {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 
     @Override
     public MenuComponent next() {
-        return null;
+        return stack.peek().next();
     }
 
     @Override

@@ -3,10 +3,10 @@ package edu.iu.habahram.DinerPancakeHouseMerge.repository;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.*;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.Menu;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuComponent;
+import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 import org.springframework.stereotype.Repository;
 
 import java.awt.*;
-import java.awt.MenuItem;
 import java.util.Arrays;
 import java.util.List;
 

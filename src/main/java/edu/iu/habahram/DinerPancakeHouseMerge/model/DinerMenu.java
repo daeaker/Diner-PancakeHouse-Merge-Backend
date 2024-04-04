@@ -7,7 +7,8 @@ public class DinerMenu extends Menu {
     int numberOfItems = 0;
     MenuItem[] menuItems;
 
-    public DinerMenu() {
+    public DinerMenu(String name, String description) {
+        super(name, description);
         menuItems = new MenuItem[MAX_ITEMS];
 
         addItem("Vegetarian BLT",

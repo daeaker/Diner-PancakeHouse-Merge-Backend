@@ -6,6 +6,7 @@ import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItemRecord;
 import edu.iu.habahram.DinerPancakeHouseMerge.repository.MergerRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -58,7 +59,7 @@ public class MergerController {
 
 
     @PostMapping("/signup")
-    public boolean signup(@RequestParam String username, @RequestParam String password, @RequestParam String email) {
+    public boolean signup(@RequestParam String username, @RequestParam String password, @RequestParam String email) throws IOException {
         Boolean success = mergerRepository.signup(username, password, email);
         return success;
     }

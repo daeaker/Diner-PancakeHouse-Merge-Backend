@@ -7,6 +7,12 @@ import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 import org.springframework.stereotype.Repository;
 
 import java.awt.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -14,6 +20,16 @@ import java.util.List;
 
 @Repository
 public class MergerRepository {
+
+    String DATABASE_NAME = "data/customers.txt";
+    private static final String NEW_LINE = System.lineSeparator();
+    private static void appendToFile(Path path, String content)
+            throws IOException {
+        Files.write(path,
+                content.getBytes(StandardCharsets.UTF_8),
+                StandardOpenOption.CREATE,
+                StandardOpenOption.APPEND);
+    }
     public List<MenuItemRecord> getTheMenuItems() {
         MenuComponent allMenus = new Menu("ALL MENUS", "All menus combined");
         allMenus.add(new PancakeHouseMenu("PANCAKE HOUSE MENU", "Breakfast"));
@@ -163,13 +179,14 @@ public class MergerRepository {
     }
 
 
-    public boolean signup(String username, String password, String email) {
+    public boolean signup(String username, String password, String email) throws IOException {
+        Path path = Paths.get(DATABASE_NAME );
 
+        String data = username + "," + password + "," + email;
 
+        appendToFile(path, data+NEW_LINE);
 
-
-
-        return false;
+        return true;
     }
 
 }

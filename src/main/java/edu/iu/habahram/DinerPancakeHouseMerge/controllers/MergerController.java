@@ -1,5 +1,6 @@
 package edu.iu.habahram.DinerPancakeHouseMerge.controllers;
 
+import edu.iu.habahram.DinerPancakeHouseMerge.model.Customer;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuComponent;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItem;
 import edu.iu.habahram.DinerPancakeHouseMerge.model.MenuItemRecord;
@@ -59,8 +60,8 @@ public class MergerController {
 
 
     @PostMapping("/signup")
-    public boolean signup(@RequestParam String username, @RequestParam String password, @RequestParam String email) throws IOException {
-        Boolean success = mergerRepository.signup(username, password, email);
+    public boolean signup(@RequestBody Customer customer) throws IOException {
+        Boolean success = mergerRepository.signup(customer);
         return success;
     }
 

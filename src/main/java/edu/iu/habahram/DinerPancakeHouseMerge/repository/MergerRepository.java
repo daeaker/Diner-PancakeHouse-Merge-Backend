@@ -179,10 +179,10 @@ public class MergerRepository {
     }
 
 
-    public boolean signup(String username, String password, String email) throws IOException {
+    public boolean signup(Customer customer) throws IOException {
         Path path = Paths.get(DATABASE_NAME );
 
-        String data = username + "," + password + "," + email;
+        String data = customer.username() + "," + customer.password() + "," + customer.password();
 
         appendToFile(path, data+NEW_LINE);
 
